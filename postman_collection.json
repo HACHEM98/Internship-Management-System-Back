@@ -1,0 +1,189 @@
+{
+  "info": {
+    "name": "Internship Management System API",
+    "description": "Complete API collection for Internship Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Students",
+      "item": [
+        {
+          "name": "Create Student",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@university.edu\",\n  \"university\": \"Tech University\",\n  \"startDate\": \"2024-01-01\",\n  \"endDate\": \"2024-12-31\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"]
+            }
+          }
+        },
+        {
+          "name": "Get All Students",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/students?page=0&size=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Student by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/students/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe Updated\",\n  \"email\": \"john.doe@university.edu\",\n  \"university\": \"Tech University\",\n  \"startDate\": \"2024-01-01\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Student",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/students/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Internships",
+      "item": [
+        {
+          "name": "Create Internship",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"studentId\": 1,\n  \"companyName\": \"Tech Corp\",\n  \"supervisorName\": \"Jane Supervisor\",\n  \"startDate\": \"2024-06-01\",\n  \"endDate\": \"2024-08-31\",\n  \"status\": \"ACTIVE\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/internships",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "internships"]
+            }
+          }
+        },
+        {
+          "name": "Get All Internships",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/internships?page=0&size=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "internships"],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Progress Reports",
+      "item": [
+        {
+          "name": "Create Progress Report",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"internshipId\": 1,\n  \"weekNumber\": 1,\n  \"tasksCompleted\": \"Completed onboarding\",\n  \"challenges\": \"Getting familiar with codebase\",\n  \"nextWeekPlan\": \"Start working on tasks\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/progress-reports",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "progress-reports"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Supervisors",
+      "item": [
+        {
+          "name": "Create Supervisor",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Supervisor\",\n  \"email\": \"jane@techcorp.com\",\n  \"company\": \"Tech Corp\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/supervisors",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "supervisors"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Evaluations",
+      "item": [
+        {
+          "name": "Create Evaluation",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"internshipId\": 1,\n  \"technicalScore\": 85,\n  \"softSkillsScore\": 90,\n  \"comments\": \"Excellent performance\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/evaluations",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "evaluations"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
+
