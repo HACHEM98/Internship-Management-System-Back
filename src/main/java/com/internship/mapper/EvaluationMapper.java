@@ -16,7 +16,6 @@ import java.util.List;
 public interface EvaluationMapper {
 
     @Mapping(target = "internshipId", source = "internship.id")
-    @Mapping(target = "internship", ignore = true)
     EvaluationDTO toDTO(Evaluation entity);
 
     @Mapping(target = "internship", ignore = true)

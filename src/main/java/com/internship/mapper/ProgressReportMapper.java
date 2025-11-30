@@ -16,7 +16,6 @@ import java.util.List;
 public interface ProgressReportMapper {
 
     @Mapping(target = "internshipId", source = "internship.id")
-    @Mapping(target = "internship", ignore = true)
     ProgressReportDTO toDTO(ProgressReport entity);
 
     @Mapping(target = "internship", ignore = true)

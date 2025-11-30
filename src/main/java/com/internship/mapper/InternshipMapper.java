@@ -16,7 +16,6 @@ import java.util.List;
 public interface InternshipMapper {
 
     @Mapping(target = "studentId", source = "student.id")
-    @Mapping(target = "student", ignore = true)
     InternshipDTO toDTO(Internship entity);
 
     @Mapping(target = "student", ignore = true)
